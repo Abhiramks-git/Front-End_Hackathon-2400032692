@@ -113,7 +113,7 @@ export default function Navbar() {
             cursor: 'pointer'
           }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.background = 'rgba(255, 255, 255, 0.2)';
+            e.currentTarget.style.background = 'rgba(27, 121, 1, 0.2)';
             e.currentTarget.style.transform = 'scale(1.05)';
           }}
           onMouseLeave={(e) => {
