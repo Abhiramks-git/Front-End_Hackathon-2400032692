@@ -10,7 +10,7 @@
 }
 
 .login-card {
-  background: rgba(39, 42, 61, 0.85);
+  background: rgba(159, 160, 168, 0.85);
   backdrop-filter: blur(10px);
   border-radius: 16px;
   padding: 40px;
@@ -58,7 +58,7 @@
   display: flex;
   gap: 0;
   margin-bottom: 30px;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(240, 237, 237, 0.77);
   border-radius: 8px;
   padding: 4px;
 }
@@ -114,7 +114,7 @@
   padding: 12px 16px;
   border: 2px solid rgba(255, 255, 255, 0.1);
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(237, 231, 231, 0.632);
   color: #f5f5fa;
   font-size: 14px;
   font-family: inherit;
@@ -130,13 +130,13 @@
 .form-group input[type="password"]:focus {
   outline: none;
   border-color: #54a0ff;
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(222, 218, 218, 0.08);
   box-shadow: 0 0 0 3px rgba(84, 160, 255, 0.1);
 }
 
 .form-group input.error {
   border-color: #ee5253;
-  background: rgba(238, 82, 83, 0.05);
+  background: rgba(208, 197, 197, 0.771);
 }
 
 .input-check {
@@ -260,7 +260,7 @@
   display: none;
   width: 14px;
   height: 14px;
-  border: 2px solid rgba(255, 255, 255, 0.3);
+  border: 2px solid rgba(211, 195, 195, 0.888);
   border-top-color: #fff;
   border-radius: 50%;
   animation: spin 0.8s linear infinite;
@@ -305,8 +305,8 @@
 }
 
 .demo-credentials {
-  background: rgba(84, 160, 255, 0.05);
-  border: 1px solid rgba(84, 160, 255, 0.2);
+  background: rgb(222, 227, 230);
+  border: 1px solid rgb(216, 219, 222);
   border-radius: 8px;
   padding: 14px 16px;
   margin-top: 20px;

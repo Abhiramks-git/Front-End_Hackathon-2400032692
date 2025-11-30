@@ -42,7 +42,7 @@ export default function Admin() {
       <p>Manage food database (add, edit, delete items).</p>
       
       {/* Add/Edit Form */}
-      <div style={{ marginBottom: "1.2rem", background: "#23242f", borderRadius: "0.7em", padding: "1rem 1.5rem" }}>
+      <div style={{ marginBottom: "1.2rem", background: "#e5e4eeff", borderRadius: "0.7em", padding: "1rem 1.5rem" }}>
         <input
           type="text"
           placeholder="Food Name"
@@ -67,7 +67,7 @@ export default function Admin() {
         {editingIndex === null ? (
           <button onClick={handleAdd}>Add Item</button>
         ) : (
-          <button onClick={handleUpdate} style={{ background: "#feaf2f", color: "#242424" }}>Update</button>
+          <button onClick={handleUpdate} style={{ background: "#090600ff", color: "#dfdadaff" }}>Update</button>
         )}
       </div>
 
@@ -75,7 +75,7 @@ export default function Admin() {
       <ul style={{ listStyle: "none", paddingLeft: 0 }}>
         {foodList.map((f, i) => (
           <li key={i} style={{
-            background: "#353259",
+            background: "#e5e4eeff",
             marginBottom: "0.66em",
             padding: "0.93em 1em",
             borderRadius: "0.55em",

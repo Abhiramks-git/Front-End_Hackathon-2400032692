@@ -76,27 +76,61 @@ export default function Login({ onLoginSuccess }) {
 
     setLoading(true);
     
-    await new Promise(resolve => setTimeout(resolve, 1500));
+    try {
+      const endpoint = isSignUp ? '/signup' : '/signin';
+      const payload = {
+        email,
+        password
+      };
 
-    if (remember) {
-      localStorage.setItem('dietbalancer_login', JSON.stringify({ email }));
-    } else {
-      localStorage.removeItem('dietbalancer_login');
+      const response = await fetch(`http://localhost:3000${endpoint}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload)
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        // Save to localStorage
+        if (remember && !isSignUp) {
+          localStorage.setItem('dietbalancer_login', JSON.stringify({ email }));
+        } else {
+          localStorage.removeItem('dietbalancer_login');
+        }
+
+        localStorage.setItem('dietbalancer_auth', JSON.stringify({
+          email,
+          userId: data.userId,
+          role: email === 'demo@dietbalancer.com' ? 'admin' : 'user',
+          token: 'jwt_token_' + Date.now(),
+          loginType: isSignUp ? 'signup' : 'login'
+        }));
+
+        setShowSuccess(true);
+        if (onLoginSuccess) onLoginSuccess();
+        
+        setTimeout(() => {
+          navigate('/');
+        }, 1500);
+      } else {
+        // Show error message from backend
+        setErrors(prev => ({
+          ...prev,
+          email: data.error || 'Authentication failed'
+        }));
+        setLoading(false);
+      }
+    } catch (err) {
+      console.error('Error:', err);
+      setErrors(prev => ({
+        ...prev,
+        email: 'Server connection error. Make sure backend is running on port 3000.'
+      }));
+      setLoading(false);
     }
-
-    localStorage.setItem('dietbalancer_auth', JSON.stringify({
-      email,
-      role: email === 'demo@dietbalancer.com' ? 'admin' : 'user',
-      token: 'demo_jwt_token_' + Date.now(),
-      loginType: isSignUp ? 'signup' : 'login'
-    }));
-
-    setShowSuccess(true);
-    if (onLoginSuccess) onLoginSuccess();
-    
-    setTimeout(() => {
-      navigate('/');
-    }, 1500);
   };
 
   return (
